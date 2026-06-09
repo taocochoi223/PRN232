@@ -1,7 +1,7 @@
 version: "1"
 
 services:
-  # 1. API Gateway (Entry point cho hệ thống)
+  # 1. API Gateway
   - type: web
     name: prn232-gateway
     env: docker
@@ -10,6 +10,8 @@ services:
     rootDir: API_Gateway/ApiGateway
     branch: main
     healthCheckPath: /health
+    envVars:
+      - fromGroup: prn232-env
 
   # 2. Identity Service
   - type: web
@@ -20,6 +22,8 @@ services:
     rootDir: Services/IdentityService
     branch: main
     healthCheckPath: /health
+    envVars:
+      - fromGroup: prn232-env
 
   # 3. Paper Service
   - type: web
@@ -30,6 +34,8 @@ services:
     rootDir: Services/PaperService
     branch: main
     healthCheckPath: /health
+    envVars:
+      - fromGroup: prn232-env
 
   # 4. Trend Service
   - type: web
@@ -40,6 +46,8 @@ services:
     rootDir: Services/TrendService
     branch: main
     healthCheckPath: /health
+    envVars:
+      - fromGroup: prn232-env
 
   # 5. User Service
   - type: web
@@ -50,6 +58,8 @@ services:
     rootDir: Services/UserService
     branch: main
     healthCheckPath: /health
+    envVars:
+      - fromGroup: prn232-env
 
   # 6. Admin Service
   - type: web
@@ -60,3 +70,5 @@ services:
     rootDir: Services/AdminService
     branch: main
     healthCheckPath: /health
+    envVars:
+      - fromGroup: prn232-env
