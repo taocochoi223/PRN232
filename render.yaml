@@ -1,0 +1,62 @@
+version: "1"
+
+services:
+  # 1. API Gateway (Entry point cho hệ thống)
+  - type: web
+    name: prn232-gateway
+    env: docker
+    region: singapore
+    plan: free
+    rootDir: API_Gateway/ApiGateway
+    branch: main
+    healthCheckPath: /health
+
+  # 2. Identity Service
+  - type: web
+    name: prn232-identity
+    env: docker
+    region: singapore
+    plan: free
+    rootDir: Services/IdentityService
+    branch: main
+    healthCheckPath: /health
+
+  # 3. Paper Service
+  - type: web
+    name: prn232-paper
+    env: docker
+    region: singapore
+    plan: free
+    rootDir: Services/PaperService
+    branch: main
+    healthCheckPath: /health
+
+  # 4. Trend Service
+  - type: web
+    name: prn232-trend
+    env: docker
+    region: singapore
+    plan: free
+    rootDir: Services/TrendService
+    branch: main
+    healthCheckPath: /health
+
+  # 5. User Service
+  - type: web
+    name: prn232-user
+    env: docker
+    region: singapore
+    plan: free
+    rootDir: Services/UserService
+    branch: main
+    healthCheckPath: /health
+
+  # 6. Admin Service
+  - type: web
+    name: prn232-admin
+    env: docker
+    region: singapore
+    plan: free
+    rootDir: Services/AdminService
+    branch: main
+    healthCheckPath: /health
