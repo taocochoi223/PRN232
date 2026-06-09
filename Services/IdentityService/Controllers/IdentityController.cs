@@ -58,7 +58,7 @@ namespace IdentityService.Controllers
         }
 
         [HttpGet("auth/google/callback")]
-        public async Task<IActionResult> GoogleCallback([FromQuery] string code)
+        public IActionResult GoogleCallback([FromQuery] string code)
         {
             return Ok(new { Message = "Google callback received. Code: " + code, Note = "Implement code exchange for ID Token and call GoogleLoginAsync." });
         }
